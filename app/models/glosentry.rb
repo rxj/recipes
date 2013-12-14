@@ -1,7 +1,6 @@
 class Glosentry < ActiveRecord::Base
   validates_presence_of :keyword
   validates_length_of :keyword, :maximum => 64
-  attr_accessible :explanation, :keyword
 
   class GlosentryHelper
     include ActionView::Helpers::TextHelper
