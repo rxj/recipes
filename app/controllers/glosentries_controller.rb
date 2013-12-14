@@ -1,6 +1,7 @@
 
 class GlosentriesController < ApplicationController
-  before_filter :authorize, :except => [:index, :show ] 
+
+http_basic_authenticate_with name: "rxj", password: "secret", except: [:index, :show]
 
   # GET /glosentries
   # GET /glosentries.json
@@ -43,7 +44,7 @@ class GlosentriesController < ApplicationController
   # POST /glosentries
   # POST /glosentries.json
   def create
-    @glosentry = Glosentry.new(params[:glosentry])
+    @glosentry = Glosentry.new(params[:glosentry].permit(:explanation, :keyword))
 
     respond_to do |format|
       if @glosentry.save

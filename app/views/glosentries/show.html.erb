@@ -9,10 +9,3 @@
   <b>Explanation:</b>
   <%= @glosentry.explanation %>
 </p>
-
-<p>
-<% if admin? %>
-<%= link_to 'Edit', edit_glosentry_path(@glosentry) %> |
-<% end %>
-<%= link_to 'Back', glosentries_path %>
-</p>
