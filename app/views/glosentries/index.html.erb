@@ -1,0 +1,36 @@
+<h1>Listing glosentries</h1>
+
+<table>
+  <tr style="background-color: teal;">
+    <th>Stichwort</th>
+    <th>Erklaerung</th>
+        <% if admin? %>
+    <th>Actions</th>
+        <% end %>
+  </tr>
+
+<% @glosentries.each do |glosentry| %>
+  <tr style="background-color: <%= cycle 'silver', 'white' %>;">
+    <td><%= link_to glosentry.keyword, glosentry %></td>
+    <td><%=h glosentry.short_explanation(50) %></td>
+        <% if admin? %>
+    <td><%= link_to 'bearbeiten', edit_glosentry_path(glosentry) %>
+            <%= link_to 'loeschen', glosentry, :confirm => 'Eintrag wirklich loeschen?', :method => :delete %></td>
+        <% end %>
+  </tr>
+<% end %>
+ 
+  <tr style="background-color: teal;">
+    <th></th>
+    <th></th>   
+        <% if admin? %>
+        <th></th>
+        <% end %>
+  </tr>
+</table>
+ 
+<br />
+ 
+<% if admin? %>
+<p><%= link_to 'Neuer Eintrag', new_glosentry_path %></p>
+<% end %>

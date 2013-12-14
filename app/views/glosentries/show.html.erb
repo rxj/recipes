@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Keyword:</b>
+  <%= @glosentry.keyword %>
+</p>
+
+<p>
+  <b>Explanation:</b>
+  <%= @glosentry.explanation %>
+</p>
+
+<p>
+<% if admin? %>
+<%= link_to 'Edit', edit_glosentry_path(@glosentry) %> |
+<% end %>
+<%= link_to 'Back', glosentries_path %>
+</p>

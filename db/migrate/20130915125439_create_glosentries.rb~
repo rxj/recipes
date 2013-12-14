@@ -1,0 +1,10 @@
+class CreateGlosentries < ActiveRecord::Migration
+  def change
+    create_table :glosentries do |t|
+      t.string :keyword
+      t.text :explanation
+
+      t.timestamps
+    end
+  end
+end
