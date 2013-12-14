@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>picture:</b>
+  <%= image_tag(@glosentry.picture_url, :width => 300) if @glosentry.picture.present? %>
+</p>
+
+<p>
   <b>Keyword:</b>
   <%= @glosentry.keyword %>
 </p>

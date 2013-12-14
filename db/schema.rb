@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130915125439) do
 
   create_table "recipes", :force => true do |t|
     t.string   "keyword"
-    t.string   "pic"
+    t.string   "picture"
     t.text     "ingredients"
     t.text     "explanation"
     t.datetime "created_at",  :null => false

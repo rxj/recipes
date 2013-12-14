@@ -1,4 +1,9 @@
 class Glosentry < ActiveRecord::Base
+
+  self.table_name = 'recipes'
+
+  mount_uploader :picture, PictureUploader
+
   validates_presence_of :keyword
   validates_length_of :keyword, :maximum => 64
 

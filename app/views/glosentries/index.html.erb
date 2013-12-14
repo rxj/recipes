@@ -2,12 +2,14 @@
 
 <table>
   <tr style="background-color: teal;">
+    <th></th>
     <th>Stichwort</th>
     <th>Erklaerung</th>
   </tr>
 
 <% @glosentries.each do |glosentry| %>
   <tr style="background-color: <%= cycle 'silver', 'white' %>;">
+    <td><%= image_tag(glosentry.picture_url, :width => 300) if glosentry.picture.present? %></td>
     <td><%= link_to glosentry.keyword, glosentry %></td>
     <td><%=h glosentry.short_explanation(50) %></td>
   </tr>
@@ -15,6 +17,7 @@
  
   <tr style="background-color: teal;">
     <th></th>
+    <th></th>   
     <th></th>   
   </tr>
 </table>

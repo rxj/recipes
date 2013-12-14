@@ -1,4 +1,4 @@
-<%= form_for(@glosentry) do |f| %>
+<%= form_for(@glosentry, :html => {:multipart => true}) do |f| %>
   <% if @glosentry.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@glosentry.errors.count, "error") %> prohibited this glosentry from being saved:</h2>
@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= f.label :picture %><br />
+    <%= f.file_field :picture %>
+  </div>
   <div class="field">
     <%= f.label :keyword %><br />
     <%= f.text_field :keyword %>
