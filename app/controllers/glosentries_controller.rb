@@ -3,6 +3,11 @@ class GlosentriesController < ApplicationController
 
 http_basic_authenticate_with name: "rxj", password: "secret", except: [:index, :show]
 
+  def glosentry_params
+    params[:glosentry].permit(:picture, :explanation, :keyword)
+  end
+
+
   # GET /glosentries
   # GET /glosentries.json
   def index
@@ -44,7 +49,7 @@ http_basic_authenticate_with name: "rxj", password: "secret", except: [:index, :
   # POST /glosentries
   # POST /glosentries.json
   def create
-    @glosentry = Glosentry.new(params[:glosentry].permit(:picture, :explanation, :keyword))
+    @glosentry = Glosentry.new(glosentry_params)
 
     respond_to do |format|
       if @glosentry.save
@@ -60,10 +65,10 @@ http_basic_authenticate_with name: "rxj", password: "secret", except: [:index, :
   # PUT /glosentries/1
   # PUT /glosentries/1.json
   def update
-    @glosentry = Glosentry.find(params[:id])
+    @glosentry = Glosentry.find(params[:id])   
 
     respond_to do |format|
-      if @glosentry.update_attributes(params[:glosentry])
+      if @glosentry.update_attributes(glosentry_params)
         format.html { redirect_to @glosentry, notice: 'Glosentry was successfully updated.' }
         format.json { head :no_content }
       else
