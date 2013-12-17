@@ -1,24 +1,27 @@
-<h1>Listing glosentries</h1>
+<h1>Alle veganen Rezepte:</h1>
 
-<table>
-  <tr style="background-color: teal;">
+<table class="table table-striped">
+  <thead>
+  <tr>
     <th></th>
     <th>Stichwort</th>
-    <th>Erklaerung</th>
+    <th>Erklärung</th>
   </tr>
+</thead>
 
 <% @glosentries.each do |glosentry| %>
-  <tr style="background-color: <%= cycle 'silver', 'white' %>;">
+  <tr>
     <td><%= image_tag(glosentry.picture_url, :width => 300) if glosentry.picture.present? %></td>
     <td><%= link_to glosentry.keyword, glosentry %></td>
-    <td><%=h glosentry.short_explanation(50) %></td>
+    <td><%= glosentry.short_explanation(50) %></td>
   </tr>
 <% end %>
  
-  <tr style="background-color: teal;">
-    <th></th>
-    <th></th>   
-    <th></th>   
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    
   </tr>
 </table>
  

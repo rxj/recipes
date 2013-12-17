@@ -12,6 +12,13 @@
  *= require_tree .
  */
 
-body {
-	background-color: black;
+body { padding-top: 60px; }
+
+img {border-radius: 30px; }
+
+table, td, th { 
+	vertical-align: middle !important; 
+	border: none !important; 
 }
+
+th { border-bottom: 1px solid #DDD !important; }
