@@ -11,7 +11,7 @@
 
 <% @glosentries.each do |glosentry| %>
   <tr>
-    <td><%= image_tag(glosentry.picture_url, :width => 300) if glosentry.picture.present? %></td>
+    <td><%= image_tag(glosentry.picture_url, :width => 300) if glosentry.picture.present?%></td>
     <td><%= link_to glosentry.keyword, glosentry %></td>
     <td><%= glosentry.short_explanation(50) %></td>
   </tr>
@@ -27,4 +27,3 @@
  
 <br />
  
-<p><%= link_to 'Neuer Eintrag', new_glosentry_path %></p>
